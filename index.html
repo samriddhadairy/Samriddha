@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Samriddha Dairy | Premium Milk Delivery</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+  <h2>Samriddha Dairy</h2>
+  <button onclick="openOrder()">Order Now</button>
+</header>
+
+<section class="hero">
+  <h1>Pure Milk. Delivered Fresh.</h1>
+  <p>Direct from farm to your doorstep</p>
+</section>
+
+<section class="products">
+  <h2>Our Products</h2>
+
+  <div class="card">
+    <img src="milk.png">
+    <h3>Fresh Milk</h3>
+    <p>₹60 / Litre</p>
+  </div>
+
+  <div class="card">
+    <img src="paneer.png">
+    <h3>Paneer</h3>
+    <p>₹300 / Kg</p>
+  </div>
+
+</section>
+
+<!-- Order Form -->
+<div id="orderBox" class="order-box">
+  <h2>Place Order</h2>
+
+  <input type="text" id="name" placeholder="Name">
+  <input type="text" id="phone" placeholder="Phone">
+
+  <select id="product">
+    <option value="Milk">Milk</option>
+    <option value="Paneer">Paneer</option>
+  </select>
+
+  <input type="number" id="qty" placeholder="Quantity">
+
+  <button onclick="submitOrder()">Submit</button>
+</div>
+
+<script>
+const API = "https://samriddha-backend.onrender.com";
+
+function openOrder(){
+  document.getElementById("orderBox").style.display = "block";
+}
+
+async function submitOrder(){
+  let data = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    product: document.getElementById("product").value,
+    quantity: document.getElementById("qty").value,
+    total: 60
+  };
+
+  await fetch(API + "/order", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(data)
+  });
+
+  alert("Order Placed Successfully 🚀");
+}
+</script>
+
+</body>
+  </html>
