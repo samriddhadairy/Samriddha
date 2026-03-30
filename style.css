@@ -1,0 +1,66 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f4f6f5;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #1a3622;
+  color: white;
+}
+
+.header button {
+  background: #d4af37;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  background: url('milk.jpg') center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* PRODUCTS */
+.products {
+  padding: 40px;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  width: 200px;
+}
+
+/* ORDER BOX */
+.order-box {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.order-box input, .order-box select {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
